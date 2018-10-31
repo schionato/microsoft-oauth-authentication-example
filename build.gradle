@@ -1,0 +1,33 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.github.schionato'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.cloud:spring-cloud-starter-openfeign:2.0.1.RELEASE")
+    compile("io.github.openfeign.form:feign-form:3.4.1")
+    compile("io.github.openfeign.form:feign-form-spring:3.4.1")
+    compile("com.netflix.feign:feign-jackson:8.18.0")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

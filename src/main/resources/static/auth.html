@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Calendar autentication</title>
+    </head>
+    <body>
+        <script>
+            const url = '/microsoft/auth/url';
+            const request = new XMLHttpRequest();
+            request.open("GET", url, true);
+            request.send();
+            request.onloadend = (e) => {
+                const microsoftOAuthLink = request.responseText;
+                const text = document.createTextNode("Click here to connect with Microsoft Account");
+                const link = document.createElement("a");
+                link.appendChild(text);
+                link.target = "_blank";
+                link.href = microsoftOAuthLink;
+                document.body.appendChild(link);
+            }
+        </script>
+    </body>
+</html>
